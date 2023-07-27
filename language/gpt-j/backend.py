@@ -40,8 +40,8 @@ class SUT_base():
 
         self.model = AutoModelForCausalLM.from_pretrained(
             self.model_path,
-            device_map="auto" if not self.use_gpu else None,
-            low_cpu_mem_usage=True if not self.use_gpu else False,
+#            device_map="auto" if not self.use_gpu else None,
+#            low_cpu_mem_usage=True if not self.use_gpu else False,
             torch_dtype=self.amp_dtype
         )
 

@@ -56,6 +56,17 @@ def main():
         use_gpu=args.gpu,
     )
 
+    use_tpp =True # False
+
+    
+    print('1')
+    if use_tpp:
+        import torch
+        from tpp_pytorch_extension.llm.fused_gptj_infer import OptimizeModelForGPTJ
+        print('2')
+        OptimizeModelForGPTJ(sut.model, dtype=torch.bfloat16, device='cpu')
+    print(sut.model)
+
     settings = lg.TestSettings()
     settings.scenario = scenario_map[args.scenario]
     # Need to update the conf
